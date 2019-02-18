@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width:850px;
+			height:130px;
+			background:plum;
+		}
+		.dbl{
+			width:100px;
+			height:100px;
+			border-radius: 50%;
+			background:aqua;
+			float:left;
+			margin-left:8px;
+			text-align: center;
+			line-height:100px;
+
+		}
+		img{
+			width:100px;
+			height:100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="dbl"><img src="1.png" alt=""></div>
+		<div class="dbl"><img src="2.png" alt=""></div>
+		<div class="dbl"><img src="3.png" alt=""></div>
+		<div class="dbl"><img src="4.png" alt=""></div>
+		<div class="dbl"><img src="5.png" alt=""></div>
+		<div class="dbl"><img src="1.png" alt=""></div>
+
+
+	</div>
+</body>
+<script>
+var dbl=document.querySelectorAll(".dbl")
+document.onmousemove=function(){
+	for(var i=0;i<dbl.length;i++){
+		var e=e||event;
+		var x1=e.clientX;
+		var y1=e.clientY;
+		var x0=dbl[i].offsetLeft+dbl[i].offsetWidth/2;
+		var y0=dbl[i].offsetTop+dbl[i].offsetHeight/2;
+		 dbl[i].style.width=300-(Math.min(Math.sqrt(Math.pow(x1-x0,2)+Math.pow(y1-y0,2)),200))+"px";
+		 dbl[i].style.height=300-(Math.min(Math.sqrt(Math.pow(x1-x0,2)+Math.pow(y1-y0,2)),200))+"px";
+	}
+}
+</script>
+</html>
